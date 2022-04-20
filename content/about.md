@@ -1,0 +1,32 @@
++++
+title = "Clara Rigaud"
++++
+
+
+{{< figure class="avatar" src="/avatar.png" alt="avatar">}}
+
+Hi, I'm Clara, I am a PhD candidate in Human Computer Interaction at the [ISIR laboratory](http://www.isir.upmc.fr/?lang=en) ([Multiscale Interaction Team](http://hci.isir.upmc.fr/)) in Paris.
+
+## Research Interest
+I’m working with [Yvonne Jansen](http://hci.isir.upmc.fr/people/jansen/) and [Gilles Bailly](https://hci.isir.upmc.fr/people/gilles-bailly/) on the topic of knowledge related to fabrication activities inside makerspaces, fablabs, workshops, and more generally the DIY community.
+
+My thesis is part of the [AfFABle project](https://af-fab-le.github.io/) and I’m working in close relationship with the Sorbonne University Fablab where I organize weekly workshops arounds different machines, prototyping and crafting activities. 
+
+## Publications
+* **From the Makerspace to the Web: Creating Knowledge Resources from Fabrication Activities**,
+Clara Rigaud,
+Sixteenth International Conference on Tangible, Embedded, and Embodied Interaction
+([10.1145/3490149.3503584](https://doi.org/10.1145/3490149.3503584)) [PDF](https://drive.google.com/file/d/1stlJKdLm1LGeJDoW5tF_sMsTZwDJdrFp/view)
+
+* **Code the globe: Interactive content for spherical multi-touch displays with simple webpages**,
+Thomas Crespel, Brett Ridel, Clara Rigaud,  Anke M. Brock and Patrick Reuter,
+Proceedings of the 6th ACM International Symposium on Pervasive Displays
+([10.1145/3078810.3078828](https://doi.org/10.1145/3078810.3078828)) [PDF](https://hal.inria.fr/hal-01523744/document)
+
+## Contact
+
+* Email: [clara.rigaud[at]sorbonne-universite.fr](mailto:clara.rigaud@sorbonne-universite.fr)
+
+* [Twitter](https://twitter.com/clararigo)
+* [GoogleScholar](https://scholar.google.com/citations?user=OGYV0BsAAAAJ&hl=fr)
+* [LinkedIn](https://www.linkedin.com/in/clararigaud/)
