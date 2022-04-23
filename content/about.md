@@ -7,10 +7,12 @@ title = "Clara Rigaud"
 
 Hi, I'm Clara, I am a PhD candidate in Human Computer Interaction at the [ISIR laboratory](http://www.isir.upmc.fr/?lang=en) ([Multiscale Interaction Team](http://hci.isir.upmc.fr/)) in Paris.
 
-## Research Interest
 I’m working with [Yvonne Jansen](http://hci.isir.upmc.fr/people/jansen/) and [Gilles Bailly](https://hci.isir.upmc.fr/people/gilles-bailly/) on the topic of knowledge related to fabrication activities inside makerspaces, fablabs, workshops, and more generally the DIY community.
 
 My thesis is part of the [AfFABle project](https://af-fab-le.github.io/) and I’m working in close relationship with the Sorbonne University Fablab where I organize weekly workshops arounds different machines, prototyping and crafting activities. 
+
+I have also been involved in several music and art projects in the past as a curator and artist around digital art, self-made books and the fanzine community.
+
 
 ## Publications
 * **From the Makerspace to the Web: Creating Knowledge Resources from Fabrication Activities**,
