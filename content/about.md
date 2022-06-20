@@ -15,15 +15,21 @@ I have also been involved in several music and art projects in the past as a cur
 
 
 ## Publications
+
+* **Exploring Capturing Approaches in Shared Fabrication Workshops: Current Practice and Opportunities**,
+Clara Rigaud, Gilles Bailly, Ignacio Avellino, Yvonne Jansen.
+Proceedings of the ACM on Human-Computer Interaction , Association for Computing Machinery (ACM), In press, Issue CSCW 2022, 6
+(in press) [PDF](https://hal.sorbonne-universite.fr/hal-03695911v1)
+
 * **From the Makerspace to the Web: Creating Knowledge Resources from Fabrication Activities**,
 Clara Rigaud,
-Sixteenth International Conference on Tangible, Embedded, and Embodied Interaction
-([10.1145/3490149.3503584](https://doi.org/10.1145/3490149.3503584)) [PDF](https://drive.google.com/file/d/1stlJKdLm1LGeJDoW5tF_sMsTZwDJdrFp/view)
+Sixteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI ’22), Feb 2022, Daejeon, South Korea.
+([10.1145/3490149.3503584](https://doi.org/10.1145/3490149.3503584)) [PDF](https://hal.sorbonne-universite.fr/hal-03644511)
 
 * **Code the globe: Interactive content for spherical multi-touch displays with simple webpages**,
 Thomas Crespel, Brett Ridel, Clara Rigaud,  Anke M. Brock and Patrick Reuter,
 Proceedings of the 6th ACM International Symposium on Pervasive Displays
-([10.1145/3078810.3078828](https://doi.org/10.1145/3078810.3078828)) [PDF](https://hal.inria.fr/hal-01523744/document)
+([10.1145/3078810.3078828](https://doi.org/10.1145/3078810.3078828)) [PDF](https://hal.inria.fr/hal-01523744)
 
 ## Contact
 
