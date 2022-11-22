@@ -19,7 +19,7 @@ I have also been involved in several music and art projects in the past as a cur
 * **Exploring Capturing Approaches in Shared Fabrication Workshops: Current Practice and Opportunities**,
 Clara Rigaud, Gilles Bailly, Ignacio Avellino, Yvonne Jansen.
 Proceedings of the ACM on Human-Computer Interaction , Association for Computing Machinery (ACM), In press, Issue CSCW 2022, 6
-(in press) [PDF](https://hal.sorbonne-universite.fr/hal-03695911v1)
+[PDF](https://dl.acm.org/doi/10.1145/3555116#d35591366e1)
 
 * **From the Makerspace to the Web: Creating Knowledge Resources from Fabrication Activities**,
 Clara Rigaud,
