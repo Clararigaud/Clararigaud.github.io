@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+</head>
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
+          <a-assets>
+           <a-asset-item id="dawningFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2FdawningOfANewDayRegular.typeface.json?1490305922844"></a-asset-item>
+          <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
+            </a-assets>
+
         <a-marker preset="hiro">
-            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            <a-entity
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-            ></a-entity>
+        <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>   
+        <a-entity
+          rotation="-90 0 0"
+          position="-5 0 0"
+          text-geometry="value: Bienvenue dans la réalité augmentée ! ; font: #dawningFont; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 1; height: 0;"
+          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
+        ></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
         </a-scene>
     </body>
-</html>
 </html>
