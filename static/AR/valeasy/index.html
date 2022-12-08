@@ -1,7 +1,13 @@
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src="https://unpkg.com/aframe-animation-component@3.2.2/dist/aframe-animation-component.min.js"></script>
 <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
 <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;">
   <a-assets>
      <a-asset-item id="dawningFont" src="https://unpkg.com/three@0.77.0/examples/fonts/optimer_regular.typeface.json"></a-asset-item>
@@ -62,3 +68,5 @@
 </a-marker>
 <a-entity camera></a-entity>
 </a-scene>
+</body>
+</html>
