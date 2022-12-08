@@ -1,0 +1,64 @@
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-animation-component@3.2.2/dist/aframe-animation-component.min.js"></script>
+<script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;">
+  <a-assets>
+     <a-asset-item id="dawningFont" src="https://unpkg.com/three@0.77.0/examples/fonts/optimer_regular.typeface.json"></a-asset-item>
+    <a-asset-item id="sac" src="https://raw.githubusercontent.com/Clararigaud/Clararigaud.github.io/main/static/AR/3dstuff/bag_asset/scene.gltf"></a-asset-item>
+</a-assets>
+
+<a-marker type="barcode" value="1">
+
+<a-entity  position="0 0 0" scale="3 3 3">
+ 
+   <a-entity gltf-model="#sac" 
+           position="0 0 -1" 
+           scale="1 1 1"
+          >
+</a-entity>
+   <a-entity
+            rotation="-50 0 0"
+            position="-1.5 0 -3"
+            text-geometry="value: deposer votre valise ; font: #dawningFont;  "
+            material="color:blue; metalness:0.1; roughness: 0.5;"
+            scale="0.5 0.5 0.5">
+            
+  </a-entity>
+   <a-entity
+            rotation="-50 0 -90"
+            position="-0.25 0 -3"
+            text-geometry="value: -> ; font: #dawningFont;  "
+            material=" metalness:0.1; roughness: 0.5;"
+            animation="property: material.color ; from:#0101DF; to:#FF0000; dur:1000; dir:alternate; loop:true;" 
+            scale="1 1 1">
+            
+  </a-entity>
+     <a-entity
+            rotation="-50 0 0"
+            position="-2 0 0"
+            text-geometry="value:2ème marker pour mode d'emploie ; font: #dawningFont;  "
+            material="color:blue; metalness:0.1; roughness: 0.5;"
+            scale="0.5 0.5 0.5">
+  </a-entity>
+    
+    
+</a-entity>
+</a-marker>
+ <a-marker type="barcode" value="10">
+      <a-entity  position="0 0 0" scale="2 2 2">
+     <a-entity
+            rotation="-50 0 0"
+            position="-7 0 0"
+            text-geometry="value: Superposer votre valise avec la valise en réalité augmenté : 
+                           si votre valise disparais elle est de taille reglementaire ; font: #dawningFont;  "
+            material="color:black; metalness:0.1; roughness: 0.5;"
+            scale="0.5 0.5 0.5"
+                   animation="property: position ; from: -7 0 0; to: -2 0 0; dur:10000; dir:alternate; loop:true;" >
+  </a-entity>
+
+     
+   </a-entity>
+</a-marker>
+<a-entity camera></a-entity>
+</a-scene>
