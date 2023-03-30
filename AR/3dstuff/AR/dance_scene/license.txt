@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dance Scene
+* source:	https://sketchfab.com/3d-models/dance-scene-e2aa66e01c7e4f92bb3ab45a76d3d9b8
+* author:	alplaleli (https://sketchfab.com/alplaleli)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dance Scene" (https://sketchfab.com/3d-models/dance-scene-e2aa66e01c7e4f92bb3ab45a76d3d9b8) by alplaleli (https://sketchfab.com/alplaleli) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
