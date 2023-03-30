@@ -1,0 +1,271 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v5.0.5eb040c7)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 200992,
+            "type": "VEC3",
+            "max": [
+                0.23133400082588197,
+                0.662559986114502,
+                0.13551199436187745
+            ],
+            "min": [
+                -0.22325199842453004,
+                0.0050490000285208229,
+                -0.1352819949388504
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 200992,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 200992,
+            "type": "VEC2",
+            "max": [
+                0.9906690120697022,
+                0.9919499754905701
+            ],
+            "min": [
+                0.008050000295042992,
+                0.008050024509429932
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1083741,
+            "type": "SCALAR",
+            "max": [
+                200991
+            ],
+            "min": [
+                0
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 7799,
+            "type": "VEC3",
+            "max": [
+                0.15266799926757813,
+                0.8935779929161072,
+                -0.06402099877595902
+            ],
+            "min": [
+                -0.15343399345874787,
+                0.5497649908065796,
+                -0.10426300019025803
+            ]
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 7799,
+            "type": "VEC3",
+            "max": [
+                0.9999898672103882,
+                1.0,
+                0.9999996423721314
+            ],
+            "min": [
+                -0.9999901056289673,
+                -1.0,
+                -0.9999996423721314
+            ]
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 7799,
+            "type": "VEC2",
+            "max": [
+                0.8363950252532959,
+                0.9919499754905701
+            ],
+            "min": [
+                0.08017800003290177,
+                0.18185698986053468
+            ]
+        },
+        {
+            "bufferView": 7,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 41904,
+            "type": "SCALAR",
+            "max": [
+                7798
+            ],
+            "min": [
+                0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 11183892,
+            "uri": "result.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 2411904,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2411904,
+            "byteLength": 2411904,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 4823808,
+            "byteLength": 1607936,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6431744,
+            "byteLength": 4334964,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 10766708,
+            "byteLength": 93588,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 10860296,
+            "byteLength": 93588,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 10953884,
+            "byteLength": 62392,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 11016276,
+            "byteLength": 167616,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "DefaultMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        },
+        {
+            "name": "Material.001",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Suitcase_Cube.001",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 3,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Handle_Cube.002",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 7,
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5,
+                        "TEXCOORD_0": 6
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "input.obj",
+            "children": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "Suitcase_Cube.001",
+            "mesh": 0
+        },
+        {
+            "name": "Handle_Cube.002",
+            "mesh": 1
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
