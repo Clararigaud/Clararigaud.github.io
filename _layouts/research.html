@@ -1,0 +1,24 @@
+---
+layout: main
+image: 
+---
+<section class="content-sec sec-crr">
+	<div class="sec-container">
+{{ content }}
+	</div>
+</section>
+<section class="content-sec sec-dark">
+	<div class="sec-container">
+<h2>Publications:</h2>
+<ul class="postlist">
+  	{% for post in site.categories.publication %}
+    <li class="postlist-li">
+		<h3>{{ post.title }}</h3>{{post.authors | join: ', '}}. {{ post.publisher }}, {{ post.date | date: "%b %y" }}, {{ post.place }}.</br>
+		{% if post.doi %} <a href="http://doi.org/{{post.doi}}" target="_blank" >doi.org</a>{% endif %}
+		{% if post.pdfurl %} <a href="{{post.pdfurl}}" target="_blank" >PDF</a>{% endif %}
+		{% if post.presentationurl %} <a href="{{post.presentationurl}}" target="_blank" >Presentation</a>{% endif %}
+	 </li>
+	 {% endfor %}
+	</ul>
+		</div>
+</section>

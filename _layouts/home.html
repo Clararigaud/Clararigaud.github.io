@@ -1,0 +1,35 @@
+---
+layout: main
+image: 
+---
+<section class="content-sec sec-crr">
+	<div class="sec-container">
+		{{ content }}
+	</div>
+</section>
+<section class="content-sec sec-dark">
+	<div class="sec-container">
+		<h2>Latest news:</h2>
+		<ul class="postlist">
+			{% assign previousyear = "" %}
+			{% for post in site.posts %}
+				{% if post.categories contains "event" or post.event != nil  %}
+					{% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
+				    {% if year != previousyear %}
+				    {{year}}
+					{% assign previousyear = year %}
+				    {% endif %}
+				    <li class="postlist-li">
+				    	{% if post.categories contains "event" %} 
+				    		> {{ post.content | remove: "<p>" | remove: "</p>"}}
+				    	{% elsif post.categories contains "activity"%}
+				    		> {{post.event}}
+				    	{% else %}
+				    		> {{post.event}}
+				    	{% endif" %} 
+					 </li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>

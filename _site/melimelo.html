@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/css/styles.css">
+	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	<title>Clara Rigo | Melimelo</title>
+	<meta name="description" content="My name is Clara and I work on projects between computer sciences, interaction, design and humanities.">
+</head>
+<header id="header">
+	<svg id="cuteline" width="100%" height="250px">
+	</svg>
+	<div id="title-container">
+		
+		<a href=http://localhost:4000><h1 id="title">Clara Rigo</h1></a>
+	</div>
+	<script type="text/javascript">
+		function createHeader(){
+			var l1 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+			var l2 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+			l1.setAttribute("id", "left-line");
+			l2.setAttribute("id", "right-line");
+			l1.setAttributeNS(null, "style", "stroke:white;stroke-width:4; -webkit-stroke:white;-webkit-stroke-width:4");
+			l2.setAttributeNS(null, "style", "stroke:white;stroke-width:4");
+			var res = updateHeader(l1, l2);
+			document.getElementById("cuteline").appendChild(res[0]);
+			document.getElementById("cuteline").appendChild(res[1]);
+		}
+
+		function updateHeader(l1, l2, event=undefined){
+			var rect = document.getElementById("title").getBoundingClientRect();
+			var titlerect = {
+				w: parseInt(rect.width),
+				h: parseInt(rect.height),
+				l: parseInt(rect.left),
+				t: parseInt(rect.top + window.pageYOffset)
+			}
+			var l1p = { x1:0, x2:titlerect.l-10, y: titlerect.t+titlerect.h/2}
+			var l2p = { x1:titlerect.l+titlerect.w+10, x2:window.innerWidth, y: titlerect.t+titlerect.h/2}
+
+			var l1ps = [[l1p.x1,l1p.y], [l1p.x2,l1p.y]];
+			var l2ps = [[l2p.x1,l2p.y], [l2p.x2,l2p.y]];
+			if(event){
+				var s = 25;
+				 if(event.type=="mouseenter"){
+				// 	console.log("creating")
+				 }
+				else if(event.type=="mouseleave"){}
+				else if(event.type=="mousemove"){
+					
+
+					if(l1p.x1 < event.clientX && event.clientX < l1p.x2){
+						l1ps = [[l1p.x1,l1p.y],[event.clientX-s,l1p.y],[Math.max(l1p.x1,event.clientX),event.clientY+window.pageYOffset-10],[Math.min(event.clientX+s,l1p.x2),l1p.y], [l1p.x2,l1p.y]]
+					}
+					else if(l2p.x1 < event.clientX && event.clientX < l2p.x2){
+						l2ps = [[l2p.x1,l2p.y],[Math.max(event.clientX-s,l2p.x1),l2p.y],[event.clientX,event.clientY+window.pageYOffset-10],[Math.min(l2p.x2, event.clientX+s),l2p.y], [l2p.x2,l2p.y]]
+					}
+					// else{
+					// 	console.log("ünder non one");
+					// }
+
+				}
+			}
+			var t1 = [];
+			var t2 = [];
+			l1ps.forEach((pts)=> t1.push(pts.join(",")));
+			l2ps.forEach((pts)=> t2.push(pts.join(",")));
+			t1 = t1.join(" "); t2 = t2.join(" ");
+
+			l1.setAttributeNS(null, "points", t1);
+			l2.setAttributeNS(null, "points", t2);
+			return [l1,l2];
+		}
+
+		// waiting for stuff to be readyyy
+		const fontloaded = new Promise((resolve, reject) => {
+		  document.fonts.onloadingdone = () => {resolve()};
+		});
+		const docloaded = new Promise((resolve, reject) => {
+		  window.addEventListener("DOMContentLoaded", (event) => {resolve()});
+		});
+		const cssloaded = new Promise((resolve, reject) => {
+		  window.addEventListener("load", (event) => {resolve()});
+		});
+		Promise.all([fontloaded, docloaded, cssloaded]).then((values) => {
+		  // console.log(values);
+		  createHeader();
+		});
+
+		//update stuff sometimes
+		window.addEventListener("resize", () => { 
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+		});
+
+		// window.addEventListener("scroll", () => { 
+		// 	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+		// });
+
+		document.getElementById("header").addEventListener("mouseenter", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'),event)
+		})
+		document.getElementById("header").addEventListener("mousemove", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+		})
+		document.getElementById("header").addEventListener("mouseleave", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+		})
+	</script>
+	<nav>
+	  
+	    <a href="/research" >Research</a>
+	  
+	    <a href="/activities" >Activities</a>
+	  
+	    <a href="/projects" >Projects</a>
+	  
+	</nav>
+</header>
+<body>
+	<section class="content-sec sec-crr">
+	<div class="sec-container">	
+	<h2>Melimelo</h2>
+	<p>I made a game with <a target="_blank" href="https://leon196.github.io/">Leon Denise</a> at the occasion of the Global Game Jam 2018. Melimelo is a game about untangling wires, and was designed and coded using Three.js in 24 hours.</p>
+
+<p>You can play it <a href="https://leon.itch.io/melimelo" target="_blank">here</a>. 
+<img src="/assets/images/melimelogame.png" alt="Screenshot_000" class="project-img" /></p>
+
+	</div>
+	<div style="clear:both"></div>
+</section>
+	
+</body>
+<footer>//////////////////////////////////(WIP)////////////////////////////////////
+</footer>
+</html>

@@ -1,0 +1,76 @@
+---
+layout: main
+image: 
+---
+<script type="text/javascript">
+	window.addEventListener("DOMContentLoaded", (event) => {
+		$(".activity-post-content").hide();
+		$(".activity-content-toggle").on("click", function(e){
+			var id = $(e.target).attr("id");
+			console.log(id);
+			$("#activity-post-content-"+id).slideToggle(200, "linear",  (ev) =>{
+				if($("#activity-post-content-"+id).is(':visible')){$(e.target).text("Close X");}
+			else{$(e.target).html("Read the story again>");}});
+		})
+	});
+
+</script>
+<section class="content-sec sec-dark">
+	<div class="sec-container">
+{{content}}
+<ul class="postlist activities">
+	{% assign i = 0 %}
+	{% assign sortedPosts = site.posts | sort: 'enddate' %}
+  	{% for p in sortedPosts reversed%}
+  		{% if p.categories contains "activity"%}
+	  		{% capture title %}
+	  		{% if p.categories contains "teaching"%}
+	  			[Teacher]
+	  		{%elsif p.categories contains "education"%}
+	  			[Student]
+	  		{%elsif p.categories contains "internship"%}
+	  			[Intern]
+	  		{%elsif p.categories contains "volunteering"%}
+	  			[Volunteer]
+	  		{%elsif p.categories contains "research"%}
+	  			[Researcher]
+	  		{%elsif p.categories contains "creator"%}
+	  			[Creator]
+	  		{% endif %}
+	  		{%endcapture%}
+	  		<li class="postlist-li">
+  				<p class="activity-type">
+  					<b>{{title}}</b>
+  				</p>
+	  			<div class="activity-content">
+	  				<p class="activity-dateduration">
+	  					{%assign start = p.date | date: "%s" %}
+	  					{% assign end=  p.enddate | date: "%s" %}
+	  					{%assign duration = end | minus: start %}
+						{% assign diffDays = duration | divided_by: 86400 %}
+						{% assign years = diffDays | divided_by:360 %}
+						{% assign months = diffDays | modulo: 360 | divided_by:30 %}
+	  					{{ p.date | date: "%b %Y" }} > {{ p.enddate | date: "%b %Y" }} 
+	  					({% if years != 0 %}{{years}}{% if years > 1 %} years{%else%} year{%endif%}{% if months != 0 %} and {%endif%}{%endif%}{% if months != 0 %}{{months}}{% if months > 1 %} months{%else%} month{%endif%}{%endif%})
+	  				</p>
+	  				<h3 class="activity-title"> 
+	  					 {{p.title}}
+	  				</h3>
+	  				<p class="activity-location">
+	  					 {{p.place}}
+	  				</p>
+	  				{% assign content = p.content | strip_newlines %}
+	  				{%if content != ""%}
+					<div class="activity-post-content" id="activity-post-content-{{i}}">
+					{{p.content}}
+					</div>
+	  				<div class="activity-content-toggle clickable" id="{{i}}">Read the story ></div>
+					{%endif%}
+	  			</div>
+	  		</li>
+		{%endif%}
+		{% assign i = i | plus: 1 %}
+	{% endfor %}
+</ul>
+</div>
+</section>

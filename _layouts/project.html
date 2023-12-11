@@ -1,0 +1,15 @@
+---
+layout: main
+---
+<section class="content-sec sec-crr">
+	<div class="sec-container">	
+	<h2>{{ page.title }}</h2>
+	{{content}}
+	</div>
+	<div style="clear:both"></div>
+</section>
+	{% if page.carousels != nil %}
+	<section class="content-sec sec-dark">
+	 {% include carousel.html height="50" unit="%" duration="10000" number="1" %}
+</section>
+	 {% endif %}

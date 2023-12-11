@@ -1,0 +1,10 @@
+---
+layout: main
+---
+<section class="content-sec sec-crr">
+	<div class="sec-container">
+	<ul class="cool-wrapper">
+	  {% for post in site.categories.project %}<li class="cool-bloc"><a href="{{ post.url }}"><img class="" src="assets/images/small/{{ post.smallimg }}"/><h2>{{post.title}}</h2></a></li>{% endfor %}
+	</ul>
+</div>
+</section>

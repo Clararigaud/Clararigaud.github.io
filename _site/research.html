@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/css/styles.css">
+	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	<title>Clara Rigo | Research</title>
+	<meta name="description" content="My name is Clara and I work on projects between computer sciences, interaction, design and humanities.">
+</head>
+<header id="header">
+	<svg id="cuteline" width="100%" height="250px">
+	</svg>
+	<div id="title-container">
+		
+		<a href=http://localhost:4000><h1 id="title">Clara Rigo</h1></a>
+	</div>
+	<script type="text/javascript">
+		function createHeader(){
+			var l1 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+			var l2 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+			l1.setAttribute("id", "left-line");
+			l2.setAttribute("id", "right-line");
+			l1.setAttributeNS(null, "style", "stroke:white;stroke-width:4; -webkit-stroke:white;-webkit-stroke-width:4");
+			l2.setAttributeNS(null, "style", "stroke:white;stroke-width:4");
+			var res = updateHeader(l1, l2);
+			document.getElementById("cuteline").appendChild(res[0]);
+			document.getElementById("cuteline").appendChild(res[1]);
+		}
+
+		function updateHeader(l1, l2, event=undefined){
+			var rect = document.getElementById("title").getBoundingClientRect();
+			var titlerect = {
+				w: parseInt(rect.width),
+				h: parseInt(rect.height),
+				l: parseInt(rect.left),
+				t: parseInt(rect.top + window.pageYOffset)
+			}
+			var l1p = { x1:0, x2:titlerect.l-10, y: titlerect.t+titlerect.h/2}
+			var l2p = { x1:titlerect.l+titlerect.w+10, x2:window.innerWidth, y: titlerect.t+titlerect.h/2}
+
+			var l1ps = [[l1p.x1,l1p.y], [l1p.x2,l1p.y]];
+			var l2ps = [[l2p.x1,l2p.y], [l2p.x2,l2p.y]];
+			if(event){
+				var s = 25;
+				 if(event.type=="mouseenter"){
+				// 	console.log("creating")
+				 }
+				else if(event.type=="mouseleave"){}
+				else if(event.type=="mousemove"){
+					
+
+					if(l1p.x1 < event.clientX && event.clientX < l1p.x2){
+						l1ps = [[l1p.x1,l1p.y],[event.clientX-s,l1p.y],[Math.max(l1p.x1,event.clientX),event.clientY+window.pageYOffset-10],[Math.min(event.clientX+s,l1p.x2),l1p.y], [l1p.x2,l1p.y]]
+					}
+					else if(l2p.x1 < event.clientX && event.clientX < l2p.x2){
+						l2ps = [[l2p.x1,l2p.y],[Math.max(event.clientX-s,l2p.x1),l2p.y],[event.clientX,event.clientY+window.pageYOffset-10],[Math.min(l2p.x2, event.clientX+s),l2p.y], [l2p.x2,l2p.y]]
+					}
+					// else{
+					// 	console.log("ünder non one");
+					// }
+
+				}
+			}
+			var t1 = [];
+			var t2 = [];
+			l1ps.forEach((pts)=> t1.push(pts.join(",")));
+			l2ps.forEach((pts)=> t2.push(pts.join(",")));
+			t1 = t1.join(" "); t2 = t2.join(" ");
+
+			l1.setAttributeNS(null, "points", t1);
+			l2.setAttributeNS(null, "points", t2);
+			return [l1,l2];
+		}
+
+		// waiting for stuff to be readyyy
+		const fontloaded = new Promise((resolve, reject) => {
+		  document.fonts.onloadingdone = () => {resolve()};
+		});
+		const docloaded = new Promise((resolve, reject) => {
+		  window.addEventListener("DOMContentLoaded", (event) => {resolve()});
+		});
+		const cssloaded = new Promise((resolve, reject) => {
+		  window.addEventListener("load", (event) => {resolve()});
+		});
+		Promise.all([fontloaded, docloaded, cssloaded]).then((values) => {
+		  // console.log(values);
+		  createHeader();
+		});
+
+		//update stuff sometimes
+		window.addEventListener("resize", () => { 
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+		});
+
+		// window.addEventListener("scroll", () => { 
+		// 	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+		// });
+
+		document.getElementById("header").addEventListener("mouseenter", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'),event)
+		})
+		document.getElementById("header").addEventListener("mousemove", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+		})
+		document.getElementById("header").addEventListener("mouseleave", (event) => {
+			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+		})
+	</script>
+	<nav>
+	  
+	    <a href="/research" class="current">Research</a>
+	  
+	    <a href="/activities" >Activities</a>
+	  
+	    <a href="/projects" >Projects</a>
+	  
+	</nav>
+</header>
+<body>
+	<section class="content-sec sec-crr">
+	<div class="sec-container">
+<h2 id="designing-for-knowledge-capture-in-fabrication-workshops">DESIGNING FOR KNOWLEDGE CAPTURE IN FABRICATION WORKSHOPS</h2>
+<p>From 2019 to 2023, I worked on a PhD thesis in the field of Human Computer Interaction at the <a href="http://www.isir.upmc.fr/" target="_blank">ISIR laboratory</a> (<a href="https://hci.isir.upmc.fr/" target="_blank">HCI group</a>) at Sorbonne University in Paris.</p>
+
+<p>I was supervised by <a href="http://yvonnejansen.me/" target="_blank">Yvonne Jansen</a> and <a href="https://hci.isir.upmc.fr/gilles-bailly/" target="_blank">Gilles Bailly</a>, to work on the design of tools to support knowledge sharing related to fabrication activities inside makerspaces, fablabs, workshops, and more generally the DIY community.</p>
+
+<p>My thesis is part of the <a href="https://hci.isir.upmc.fr/affable/" target="_blank">AfFABle</a> project and I worked in close relationship with the <a href="https://fablab.sorbonne-universite.fr/" target="_blank">Sorbonne University Fablab</a> where I organised weekly workshops arounds different machines, prototyping, programming and crafting activities.</p>
+
+<p>I defended my thesis on June 15th 2023, and you can watch the full presentation (in French) on <a href="https://youtu.be/-oRTwK04DwE" target="_blank">Youtube</a> and read the manuscript (in English) <a href="https://hal.sorbonne-universite.fr/tel-04148164" target="_blank">here</a>.</p>
+
+	</div>
+</section>
+<section class="content-sec sec-dark">
+	<div class="sec-container">
+<h2>Publications:</h2>
+<ul class="postlist">
+  	
+    <li class="postlist-li">
+		<h3>Designing for Knowledge Capture in Fabrication Workshops</h3>Clara Rigaud. Sorbonne Université, Jun 23, Paris, France.</br>
+		
+		 <a href="https://hal.sorbonne-universite.fr/tel-04148164" target="_blank" >PDF</a>
+		 <a href="https://www.youtube.com/watch?v=-oRTwK04DwE" target="_blank" >Presentation</a>
+	 </li>
+	 
+    <li class="postlist-li">
+		<h3>Ressources de connaissances dans les ateliers de fabrication : objectifs et défis</h3>Clara Rigaud, Gilles Bailly, Yvonne Jansen. IHM'23: 34ème Conférence Internationale Francophone sur l'Interaction Humain-Machine, Apr 23, Troyes, France.</br>
+		 <a href="http://doi.org/10.1145/3583961.3583974" target="_blank" >doi.org</a>
+		 <a href="https://hal.sorbonne-universite.fr/hal-04015740" target="_blank" >PDF</a>
+		
+	 </li>
+	 
+    <li class="postlist-li">
+		<h3>Exploring Capturing Approaches in Shared Fabrication Workshops: Current Practice and Opportunities</h3>Clara Rigaud, Gilles Bailly, Ignacio Avellino, Yvonne Jansen. Proceedings of the ACM on Human-Computer Interaction, 2022, Issue CSCW 2022, 6 (CSCW2), Nov 22, .</br>
+		 <a href="http://doi.org/10.1145/3555116" target="_blank" >doi.org</a>
+		 <a href="https://hal.sorbonne-universite.fr/hal-03695911v2" target="_blank" >PDF</a>
+		 <a href="https://www.youtube.com/watch?v=TIsIkRIveGU" target="_blank" >Presentation</a>
+	 </li>
+	 
+    <li class="postlist-li">
+		<h3>Automating Documentation Considered Harmful (Some of the Time)</h3>Clara Rigaud, Yvonne Jansen, Gilles Bailly. CHI 2022 - Workshop: Reimagining Systems for Learning Hands-on Creative and Maker Skills, Apr 22, New Orleans, United States.</br>
+		
+		 <a href="https://hal.sorbonne-universite.fr/hal-03808703" target="_blank" >PDF</a>
+		
+	 </li>
+	 
+    <li class="postlist-li">
+		<h3>From the Makerspace to the Web: Creating Knowledge Resources from Fabrication Activities</h3>Clara Rigaud. Sixteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI ’22), Feb 22, Daejeon, South Korea.</br>
+		 <a href="http://doi.org/10.1145/3490149.3503584" target="_blank" >doi.org</a>
+		 <a href="https://hal.sorbonne-universite.fr/hal-03644511" target="_blank" >PDF</a>
+		
+	 </li>
+	 
+    <li class="postlist-li">
+		<h3>Code the Globe: Interactive Content for Spherical Displays with simple Webpages</h3>Thomas Crespel, Brett Ridel, Clara Rigaud, Anke Brock, Patrick Reuter. PerDis'17 - The 6th ACM International Symposium on Pervasive Displays, Jun 17, Lugano, Switzerland.</br>
+		 <a href="http://doi.org/10.1145/3078810.3078828" target="_blank" >doi.org</a>
+		 <a href="https://inria.hal.science/hal-01523744" target="_blank" >PDF</a>
+		
+	 </li>
+	 
+	</ul>
+		</div>
+</section>
+</body>
+<footer>//////////////////////////////////(WIP)////////////////////////////////////
+</footer>
+</html>
