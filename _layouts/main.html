@@ -13,7 +13,7 @@
 	</svg>
 	<div id="title-container">
 		
-		<a href={{site.url}}><h1 id="title">{{site.title}}</h1></a>
+		<a href="{{site.url}}"><h1 id="title">{{site.title}}</h1></a>
 	</div>
 	<script type="text/javascript">
 		function createHeader(){
@@ -44,7 +44,6 @@
 			if(event){
 				var s = 25;
 				 if(event.type=="mouseenter"){
-				// 	console.log("creating")
 				 }
 				else if(event.type=="mouseleave"){}
 				else if(event.type=="mousemove"){
@@ -56,10 +55,6 @@
 					else if(l2p.x1 < event.clientX && event.clientX < l2p.x2){
 						l2ps = [[l2p.x1,l2p.y],[Math.max(event.clientX-s,l2p.x1),l2p.y],[event.clientX,event.clientY+window.pageYOffset-10],[Math.min(l2p.x2, event.clientX+s),l2p.y], [l2p.x2,l2p.y]]
 					}
-					// else{
-					// 	console.log("ünder non one");
-					// }
-
 				}
 			}
 			var t1 = [];
@@ -83,8 +78,7 @@
 		const cssloaded = new Promise((resolve, reject) => {
 		  window.addEventListener("load", (event) => {resolve()});
 		});
-		Promise.all([fontloaded, docloaded, cssloaded]).then((values) => {
-		  // console.log(values);
+		Promise.all([docloaded, cssloaded]).then((values) => {
 		  createHeader();
 		});
 
