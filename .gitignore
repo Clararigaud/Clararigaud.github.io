@@ -5,3 +5,4 @@ static/.DS_Store
 Gemfile
 _site/
 .sass-cache/
+.jekyll-cache/

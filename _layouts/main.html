@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/css/styles.css">
 	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/assets/js/main.js"></script>
 	<title>{{site.title}} | {{page.title}}</title>
 	<meta name="description" content="{{site.description}}">
 </head>
@@ -15,92 +16,6 @@
 		
 		<a href="{{ site.url }}"><h1 id="title">{{site.title}}</h1></a>
 	</div>
-	<script type="text/javascript">
-		function createHeader(){
-			var l1 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-			var l2 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-			l1.setAttribute("id", "left-line");
-			l2.setAttribute("id", "right-line");
-			l1.setAttributeNS(null, "style", "stroke:white;stroke-width:4; -webkit-stroke:white;-webkit-stroke-width:4");
-			l2.setAttributeNS(null, "style", "stroke:white;stroke-width:4");
-			var res = updateHeader(l1, l2);
-			document.getElementById("cuteline").appendChild(res[0]);
-			document.getElementById("cuteline").appendChild(res[1]);
-		}
-
-		function updateHeader(l1, l2, event=undefined){
-			var rect = document.getElementById("title").getBoundingClientRect();
-			var titlerect = {
-				w: parseInt(rect.width),
-				h: parseInt(rect.height),
-				l: parseInt(rect.left),
-				t: parseInt(rect.top + window.pageYOffset)
-			}
-			var l1p = { x1:0, x2:titlerect.l-10, y: titlerect.t+titlerect.h/2}
-			var l2p = { x1:titlerect.l+titlerect.w+10, x2:window.innerWidth, y: titlerect.t+titlerect.h/2}
-
-			var l1ps = [[l1p.x1,l1p.y], [l1p.x2,l1p.y]];
-			var l2ps = [[l2p.x1,l2p.y], [l2p.x2,l2p.y]];
-			if(event){
-				var s = 25;
-				 if(event.type=="mouseenter"){
-				 }
-				else if(event.type=="mouseleave"){}
-				else if(event.type=="mousemove"){
-					
-
-					if(l1p.x1 < event.clientX && event.clientX < l1p.x2){
-						l1ps = [[l1p.x1,l1p.y],[event.clientX-s,l1p.y],[Math.max(l1p.x1,event.clientX),event.clientY+window.pageYOffset-10],[Math.min(event.clientX+s,l1p.x2),l1p.y], [l1p.x2,l1p.y]]
-					}
-					else if(l2p.x1 < event.clientX && event.clientX < l2p.x2){
-						l2ps = [[l2p.x1,l2p.y],[Math.max(event.clientX-s,l2p.x1),l2p.y],[event.clientX,event.clientY+window.pageYOffset-10],[Math.min(l2p.x2, event.clientX+s),l2p.y], [l2p.x2,l2p.y]]
-					}
-				}
-			}
-			var t1 = [];
-			var t2 = [];
-			l1ps.forEach((pts)=> t1.push(pts.join(",")));
-			l2ps.forEach((pts)=> t2.push(pts.join(",")));
-			t1 = t1.join(" "); t2 = t2.join(" ");
-
-			l1.setAttributeNS(null, "points", t1);
-			l2.setAttributeNS(null, "points", t2);
-			return [l1,l2];
-		}
-
-		// waiting for stuff to be readyyy
-		const fontloaded = new Promise((resolve, reject) => {
-		  document.fonts.onloadingdone = () => {resolve()};
-		});
-		const docloaded = new Promise((resolve, reject) => {
-		  window.addEventListener("DOMContentLoaded", (event) => {resolve()});
-		});
-		const cssloaded = new Promise((resolve, reject) => {
-		  window.addEventListener("load", (event) => {resolve()});
-		});
-		Promise.all([docloaded, cssloaded]).then((values) => {
-		  createHeader();
-		});
-
-		//update stuff sometimes
-		window.addEventListener("resize", () => { 
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
-		});
-
-		// window.addEventListener("scroll", () => { 
-		// 	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
-		// });
-
-		document.getElementById("header").addEventListener("mouseenter", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'),event)
-		})
-		document.getElementById("header").addEventListener("mousemove", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
-		})
-		document.getElementById("header").addEventListener("mouseleave", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
-		})
-	</script>
 	<nav>
 	  {% for item in site.data.navigation %}
 	    <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
