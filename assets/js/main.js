@@ -10,6 +10,22 @@ function createHeader(){
 	document.getElementById("cuteline").appendChild(res[1]);
 }
 
+var linear = function(x) {
+	if(x<=0.5000){
+		return 2.0*x;
+	}else{
+		return 1.0-2*(x-0.5);
+	}
+}
+
+var square = function(x) {
+	return 1-Math.pow(2*(x-0.5),2)
+}
+
+var gauss = function(x){
+	return Math.exp(-Math.pow(4*(x-0.5),2))
+}
+
 function updateHeader(l1, l2, event=undefined){
 	var rect = document.getElementById("title").getBoundingClientRect();
 	var titlerect = {
@@ -32,16 +48,7 @@ function updateHeader(l1, l2, event=undefined){
 		else if(event.type=="mouseleave"){}
 
 		else if(event.type=="mousemove"){
-				// var f = function(x) {
-				// 	if(x<=0.5000){
-				// 		return 2.0*x;
-				// 	}else{
-				// 		return 1.0-2*(x-0.5);
-				// 	}
-				// }
-				var f = function(x) {
-					return 1-Math.pow(2*(x-0.5),2)
-				}
+				var f = gauss;
 
 				var compute = function(min_l, max_l){
 					var ret = []
@@ -58,7 +65,7 @@ function updateHeader(l1, l2, event=undefined){
 				l1p = [
 					l1p[0],
 					[Math.max(0,event.clientX-s),y0],
-					compute(Math.max(0,event.clientX-s),Math.min(event.clientX+s,l1p[l1p.length-1][0])),
+					compute(Math.max(0,event.clientX-s+1),Math.min(event.clientX+s-1,l1p[l1p.length-1][0])),
 					[Math.min(event.clientX+s,l1p[l1p.length-1][0]),y0],
 					l1p[l1p.length-1]
 					]
@@ -68,7 +75,7 @@ function updateHeader(l1, l2, event=undefined){
 				l2p = [
 					l2p[0],
 					[Math.max(event.clientX-s,l2p[0][0]),y0],
-					compute(Math.max(l2p[0][0],event.clientX-s),Math.min(event.clientX+s,l2p[l2p.length-1][0])),
+					compute(Math.max(l2p[0][0],event.clientX-s+1),Math.min(event.clientX+s-1,l2p[l2p.length-1][0])),
 					//[event.clientX,event.clientY+window.pageYOffset-10],
 					[Math.min(l2p[l2p.length-1][0], event.clientX+s),y0],
 					l2p[l2p.length-1]]
