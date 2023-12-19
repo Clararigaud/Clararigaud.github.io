@@ -42,12 +42,14 @@ function updateHeader(l1, l2, event=undefined){
 	var l2p = [[titlerect.l+titlerect.w+10,y0], [window.innerWidth,y0]];
 	
 	if(event){
-		var s = 20;
 		if(event.type=="mouseenter"){
 		}
 		else if(event.type=="mouseleave"){}
 
 		else if(event.type=="mousemove"){
+				var s = 20;
+				var deltaY = event.clientY-y0+window.pageYOffset
+				console.log(deltaY)
 				var f = gauss;
 
 				var compute = function(min_l, max_l){
@@ -55,13 +57,12 @@ function updateHeader(l1, l2, event=undefined){
 					for(var i=0.0; i<max_l-min_l; i+=1.0){
 						var x = i/(max_l-min_l)
 						var y = f(x);
-						ret.push([i+min_l,y0+(y*(event.clientY+window.pageYOffset-y0))])
+						ret.push([i+min_l,y0+(y*(deltaY))])
 					}
 					return ret;
-					//return [Math.max(l1p[0][0],event.clientX), event.clientY+window.pageYOffset-10]
 				}
-			if(l1p[0][0] < event.clientX && event.clientX < l1p[l1p.length-1][0]){
 
+			if(l1p[0][0] < event.clientX && event.clientX < l1p[l1p.length-1][0]){
 				l1p = [
 					l1p[0],
 					[Math.max(0,event.clientX-s),y0],
@@ -69,63 +70,61 @@ function updateHeader(l1, l2, event=undefined){
 					[Math.min(event.clientX+s,l1p[l1p.length-1][0]),y0],
 					l1p[l1p.length-1]
 					]
-			
 			}
 			else if(l2p[0][0] < event.clientX && event.clientX < l2p[l2p.length-1][0]){
 				l2p = [
 					l2p[0],
 					[Math.max(event.clientX-s,l2p[0][0]),y0],
 					compute(Math.max(l2p[0][0],event.clientX-s+1),Math.min(event.clientX+s-1,l2p[l2p.length-1][0])),
-					//[event.clientX,event.clientY+window.pageYOffset-10],
 					[Math.min(l2p[l2p.length-1][0], event.clientX+s),y0],
 					l2p[l2p.length-1]]
 			}
 		}
-		}
-		var t1 = [];
-		var t2 = [];
-		l1p.forEach((pts)=> t1.push(pts.join(",")));
-		l2p.forEach((pts)=> t2.push(pts.join(",")));
-		t1 = t1.join(" "); t2 = t2.join(" ");
-
-		l1.setAttributeNS(null, "points", t1);
-		l2.setAttributeNS(null, "points", t2);
-		return [l1,l2];
 	}
+	var t1 = [];
+	var t2 = [];
+	l1p.forEach((pts)=> t1.push(pts.join(",")));
+	l2p.forEach((pts)=> t2.push(pts.join(",")));
+	t1 = t1.join(" "); t2 = t2.join(" ");
 
+	l1.setAttributeNS(null, "points", t1);
+	l2.setAttributeNS(null, "points", t2);
+	return [l1,l2];
+}
 
+// waiting for stuff to be readyyy
 
+// const fontloaded = new Promise((resolve, reject) => {
+// 	document.fonts.onloadingdone = () => {resolve()}; // nnot safari friendly
+// });
 
+const docloaded = new Promise((resolve, reject) => {
+	window.addEventListener("DOMContentLoaded", (event) => {resolve()});
+});
 
-		// waiting for stuff to be readyyy
-	// const fontloaded = new Promise((resolve, reject) => {
-	// 	document.fonts.onloadingdone = () => {resolve()}; // nnot safari friendly
-	// });
-	const docloaded = new Promise((resolve, reject) => {
-		window.addEventListener("DOMContentLoaded", (event) => {resolve()});
-	});
-	const cssloaded = new Promise((resolve, reject) => {
-		window.addEventListener("load", (event) => {resolve()});
-	});
-	Promise.all([docloaded, cssloaded]).then((values) => {
-		console.log("all loaded");
-		createHeader();
-		document.getElementById("header").addEventListener("mouseenter", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'),event)
-		})
-		document.getElementById("header").addEventListener("mousemove", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
-		})
-		document.getElementById("header").addEventListener("mouseleave", (event) => {
-			updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
-		})
-	});
+const cssloaded = new Promise((resolve, reject) => {
+	window.addEventListener("load", (event) => {resolve()});
+});
 
-		//update stuff sometimes
-	window.addEventListener("resize", () => { 
-		updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
-	});
+Promise.all([docloaded, cssloaded]).then((values) => {
+	console.log("all loaded");
+	createHeader();
+	document.getElementById("header").addEventListener("mouseenter", (event) => {
+		updateHeader(document.getElementById('left-line'), document.getElementById('right-line'),event)
+	})
+	document.getElementById("header").addEventListener("mousemove", (event) => {
+		updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+	})
+	document.getElementById("header").addEventListener("mouseleave", (event) => {
+		updateHeader(document.getElementById('left-line'), document.getElementById('right-line'), event)
+	})
+});
 
-		// window.addEventListener("scroll", () => { 
-		// 	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
-		// });
+//update stuff sometimes
+window.addEventListener("resize", () => { 
+	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+});
+
+// window.addEventListener("scroll", () => { 
+// 	updateHeader(document.getElementById('left-line'), document.getElementById('right-line'))
+// });
