@@ -1,6 +1,7 @@
 $main-size: 1200px;
 $dark-grey: #2e2e2e;
 $almost-white: #e0e0e0;
+$fun-green: #0fc907;
 
 @font-face {
   font-family: "Futura Condensed";
@@ -15,10 +16,18 @@ h2 {
 	margin: 10px 0px 5px 0px;
 }
 
+h2.sec-title{
+	    text-shadow: 1px 1px $fun-green;
+}
+
 a, .clickable {
-	color: black;
+	color: $dark-grey;
 	text-decoration:underline;
+	text-decoration-color: $fun-green;
 	cursor: pointer;
+	transition-property: color;
+  	transition-duration: 0.5s;
+  	transition-delay: 0s;
 }
 
 h3 {
@@ -27,45 +36,55 @@ h3 {
 }
 
 a:visited{
-	color: rgb(0,0,0)
+	color: $dark-grey
 }
 
 a:hover, .clickable:hover{
-	color: rgb(230,230,230)
+	color: $almost-white;
 }
 
 header, body, .content {
 	margin:0;
 	padding:0;
 	width:100%;
-	color: $almost-white;
+	color: $dark-grey;
 	font-family: "Futura Condensed";
 }
 
-/*.content {
-	//background-image: url("../images/lzs_07_2x.jpg");
-	//color:black;
+#left-line, #right-line{
+	 stroke:$fun-green;
+	 stroke-width:2; 
+	 -webkit-stroke:$fun-green;
+	 -webkit-stroke-width:2;
+	 fill:none;
+	 -webkit-fill:none;
+	
+}
+
+/* .content {
+	background-image: url("../images/lzs_07_2x.jpg");
+	color:$dark-grey;
 }*/
 
 body {
-	background-color:black;
+//display: none;
+	//background-color:$dark-grey;
 }
 
 header h1 {
 	font-size:48px;
   display: inline;
   margin:0px;
-  margin-left:100px;
 }
 
 header {
 	padding-top: 100px;
-	border-bottom: 15px solid $dark-grey;
+	//border-bottom: 15px solid $dark-grey;
 }
 
 header a, header a:visited {
 	text-decoration:none;
-	color: $almost-white;
+	color: $dark-grey;
 }
 
 #cuteline {
@@ -77,12 +96,15 @@ header a, header a:visited {
 #title-container {
 	max-width: $main-size;
     margin: 0 auto;
+    padding-left: 100px;
 }
 
 nav{
+/*    position: relative;
+    top: 15px;*/
 	font-size:30px;
 	text-decoration:none;
-    height: 50px;
+   // height: 50px;
     margin: 0 auto;
     max-width: 400px;
     text-align: right;
@@ -90,7 +112,8 @@ nav{
 
 nav a{
 	text-decoration:none;
-	padding:0 20px;
+    padding: 0 0px;
+    margin: 0 20px;
 }
 
 .content-sec {
@@ -99,12 +122,13 @@ nav a{
 	position: relative;
 
     padding: 5px 0px;
+    padding-top: 100px;
     max-width: 100%;
 	margin: 0 auto;
 }
 
 .content-sec.sec-crr{
-	color: black;
+	color: $dark-grey;
 }
 
 .content-sec.sec-crr:before{
@@ -115,7 +139,7 @@ nav a{
   left: 0;
   right: 0;
   height: 100%;
-	box-shadow: inset black 0px 0px 8px 1px;
+	//box-shadow: inset $dark-grey 0px 0px 8px 1px;
 	background-color: rgba(255,255,255,1);
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800'%0Axmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeGaussianBlur in='SourceAlpha' stdDeviation='2'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency ='0.6' stitchTiles='stitch'%0AnumOctaves='6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     -webkit-mask-repeat: repeat;
@@ -127,10 +151,15 @@ nav a{
 
 .content-sec.sec-dark {
 	background-color: $dark-grey;
+	border-top: 2px solid $fun-green;
 }
 
 .content-sec.sec-dark a, .content-sec.sec-dark {
 	color: $almost-white;
+}
+
+.content-sec.sec-dark a:hover{
+	color: #4a4a4a;
 }
 
 .sec-container {
@@ -175,9 +204,20 @@ nav a{
 }
 
 .activity-content {
-	  border-left: 1px solid black;
+	  border-left: 2px solid $fun-green;
     padding-left: 10px;
     max-width: $main-size - 200px;
+}
+
+	.activity-content-toggle{
+		position: relative;
+		z-index: 4;
+	}
+.activity-post-content.cont{
+	
+	opacity: 100% !important;
+	height: initial !important;
+	transition:  opacity 0.3s 0.1s linear; 
 }
 
 img.project-img{
@@ -247,7 +287,7 @@ display: block;
     text-align: center;
     transform: translate(0%, -50%);
     mix-blend-mode: difference;
-    text-shadow: 2px 1px 0px black;
+    text-shadow: 2px 1px 0px $dark-grey;
 }
 
 li.cool-bloc:hover h2{

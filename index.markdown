@@ -2,7 +2,8 @@
 layout: home
 title: Home
 ---
-# Welcome to my website! 
+## Welcome to my website!
+{: .sec-title }
 
 My name is Clara and I work on projects between computer sciences, interaction, design and humanities.
  

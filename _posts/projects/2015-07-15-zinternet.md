@@ -12,7 +12,7 @@ carousels:
     - image: /assets/images/rpo/zinternet-site.png
     - image: /assets/images/rpo/zinternet-zine1-2.jpg
 ---
-The <a href="http://zinefest.fr/zinternet/" target="_blank">Zinternet project</a> is a interactive drawing experience that I imagined as part of the development of the <a href="http://zinefest.fr/" target="_blank">Zinefest website</a> in 2015.
+The <a href="http://zinefest.fr/zinternet/" target="_blank">Zinternet project</a> is an interactive drawing experience that I imagined as part of the development of the <a href="http://zinefest.fr/" target="_blank">Zinefest website</a> in 2015.
 
 For my studies, I had to make a website, and I don't like things that serve no purpose other than to get a grade. So, I suggested to <a href="http://www.disparate.fr/" target="_blank">Disparate</a>, which organises this micro-publishing festival, that I build the festivals website site for free. 
 

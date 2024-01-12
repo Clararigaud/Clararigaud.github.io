@@ -1,6 +1,7 @@
 ---
 layout: educationandjobs
-title: Activities
-permalink: /activities/
+title: CV
+permalink: /cv/
 ---
 ## TIMELINE OF WORK AND STUDIES AND OTHER THINGS (AKA CV)
+{: .sec-title }

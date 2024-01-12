@@ -2,20 +2,7 @@
 layout: main
 image: 
 ---
-<script type="text/javascript">
-	window.addEventListener("DOMContentLoaded", (event) => {
-		$(".activity-post-content").hide();
-		$(".activity-content-toggle").on("click", function(e){
-			var id = $(e.target).attr("id");
-			console.log(id);
-			$("#activity-post-content-"+id).slideToggle(200, "linear",  (ev) =>{
-				if($("#activity-post-content-"+id).is(':visible')){$(e.target).text("Close X");}
-			else{$(e.target).html("Read the story again>");}});
-		})
-	});
-
-</script>
-<section class="content-sec sec-dark">
+<section class="content-sec sec-crr">
 	<div class="sec-container">
 {{content}}
 <ul class="postlist activities">
