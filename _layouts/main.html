@@ -24,6 +24,28 @@
 <body>
 	{{content}}
 </body>
-<footer>//////////////////////////////////(WIP)////////////////////////////////////
+<footer class="content-sec">
+	<div class="sec-container">	
+		<div  class="footbloc">
+			
+		Other Place To Follow my work: </br>
+			<ul>
+			<li><a target="_blank" href="https://hci.social/@clararigo" >Mastodon</a> </li>
+			<li><a target="_blank" href="https://twitter.com/clararigo" >TXter</a> </li>
+			<li><a target="_blank" href="https://www.researchgate.net/profile/Clara-Rigaud" >ResearchGate</a> </li>
+			<li><a target="_blank" href="https://scholar.google.com/citations?user=OGYV0BsAAAAJ&hl" >Google Scholar</a> </li>
+		</ul>
+	</div>
+	<div class="footbloc">
+		<ul>
+		<li><a target="_blank" href="" >Home</a> </li>
+			{% for item in site.data.navigation %}
+		    <li><a href="{{ item.link }}">{{ item.name }}</a>
+		  {% endfor %}
+		<li><a target="_blank" href="" >Random Pixel Order</a> </li>
+		</ul>
+	</div>
+</div>
+	
 </footer>
 </html>

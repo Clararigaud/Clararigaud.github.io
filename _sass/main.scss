@@ -154,6 +154,8 @@ nav a{
 	border-top: 2px solid $fun-green;
 }
 
+
+
 .content-sec.sec-dark a, .content-sec.sec-dark {
 	color: $almost-white;
 }
@@ -162,6 +164,41 @@ nav a{
 	color: #4a4a4a;
 }
 
+footer.content-sec {
+	padding: 60px 0px;
+    color: $almost-white;
+    background-color: #000;
+
+}
+
+footer.content-sec a{
+	color: $almost-white;
+	text-decoration:none;
+	text-decoration-color: $fun-green;
+}
+footer.content-sec a:hover{
+color: #4a4a4a;
+}
+
+footer .sec-container{
+    
+	display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    justify-items: center;
+}
+footer ul{
+	margin: 0;
+}
+
+footer li{
+	list-style: none;
+}
+
+.footbloc{
+	max-width: 30%;
+	display: inline-block;
+}
 .sec-container {
 	max-width: $main-size;
 	margin: 0 auto;

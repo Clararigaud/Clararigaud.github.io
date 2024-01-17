@@ -5,7 +5,7 @@ title: Home
 ## Welcome to my website!
 {: .sec-title }
 
-My name is Clara and I work on projects between computer sciences, interaction, design and humanities.
+My name is Clara and I work on projects involving computer science, interaction, design and the humanities.
  
 I recently defended my [PhD thesis]({{site.url}}/research) on human-computer interaction, exploring the design of tools to support knowledge sharing in the context of fabrication and the Do-It-Yourself communities. 
 
@@ -17,5 +17,3 @@ Today, I continue to work on projects involving technologies, humans and non-hum
 I am committed to giving humans the freedom to empower themselves over technology, as well as exploring how and if technology can be part of the future of our world.
 
 I am open to any kind of projects following my ethics :)
-
----- /!\ This website is still under construction /!\ ----
